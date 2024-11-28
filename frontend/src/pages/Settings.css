@@ -1,0 +1,45 @@
+.settings-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .settings-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .settings-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .settings-form input,
+  .settings-form select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .settings-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .settings-form button:hover {
+    background-color: #0056b3;
+  }
+  

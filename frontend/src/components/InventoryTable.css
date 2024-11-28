@@ -1,0 +1,82 @@
+/* Table Styles */
+.inventory-table-container {
+  margin: 20px 0;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 12px 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.inventory-table th {
+  background-color: #f8f9fa;
+  cursor: pointer;
+  position: relative;
+}
+
+.inventory-table th:hover {
+  background-color: #e9ecef;
+}
+
+.inventory-table th.asc::after {
+  content: '▲';
+  margin-left: 5px;
+}
+
+.inventory-table th.desc::after {
+  content: '▼';
+  margin-left: 5px;
+}
+
+.inventory-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.inventory-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Action Buttons */
+.inventory-table td button {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.view-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,102 @@
+/* Reports Page Container */
+.reports-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light background for the entire page */
+    min-height: 100vh; /* Ensure full viewport height */
+  }
+  
+  /* Page Title */
+  .reports-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333; /* Darker text color for visibility */
+    text-align: center; /* Center the title */
+  }
+  
+  /* Cards Wrapper */
+  .report-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center; /* Center cards on the page */
+    margin-bottom: 30px; /* Space below cards */
+  }
+  
+  /* Individual Card */
+  .report-card {
+    background-color: #ffffff; /* White background for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    flex: 1;
+    min-width: 220px; /* Ensure minimum size for cards */
+    max-width: 300px; /* Prevent cards from getting too large */
+    text-align: center; /* Center text in cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Card Hover Effect */
+  .report-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  }
+  
+  /* Card Title */
+  .report-card h2 {
+    font-size: 1.8rem;
+    color: #007bff; /* Bootstrap primary blue */
+    margin-bottom: 10px;
+  }
+  
+  /* Card Content */
+  .report-card p {
+    font-size: 1.3rem;
+    color: #555; /* Neutral text color */
+    margin: 0;
+  }
+  
+  /* Download Button */
+  .download-button {
+    display: inline-block;
+    margin: 0 auto; /* Center button */
+    padding: 12px 25px;
+    background-color: #28a745; /* Success green */
+    color: #ffffff; /* White text for contrast */
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Download Button Hover */
+  .download-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .report-cards {
+      flex-direction: column;
+      gap: 15px; /* Reduce spacing for smaller screens */
+    }
+  
+    .report-card {
+      min-width: 100%; /* Full width for cards */
+      max-width: 100%; /* Ensure no overflow */
+    }
+  
+    .reports-container h1 {
+      font-size: 2rem; /* Adjust title size */
+    }
+  
+    .download-button {
+      width: 100%; /* Full-width button for smaller screens */
+      text-align: center;
+    }
+  }
+  

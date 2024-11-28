@@ -1,0 +1,209 @@
+/* Dashboard Header */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.dashboard-header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Stats Overview */
+.dashboard-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.stat p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Sales Trend Chart */
+.dashboard-chart {
+  margin-bottom: 40px;
+}
+
+.dashboard-chart h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Top Performing Products */
+.top-products {
+  margin-bottom: 40px;
+}
+
+.top-products h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.top-products ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.top-products li {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Inventory Status */
+.inventory-status {
+  margin-bottom: 40px;
+}
+
+.inventory-status h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.inventory-summary {
+  display: flex;
+  justify-content: space-around;
+}
+
+.inventory-item {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  width: 30%;
+}
+
+.inventory-item h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.inventory-item p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Customer Insights */
+.customer-insights {
+  margin-bottom: 40px;
+}
+
+.customer-insights h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.customer-insights ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.customer-insights li {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Employee Activity */
+.employee-activity {
+  margin-bottom: 40px;
+}
+
+.employee-activity h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.employee-activity ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.employee-activity li {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Monthly Comparison */
+.monthly-comparison {
+  margin-bottom: 40px;
+}
+
+.monthly-comparison h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.comparison-summary {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.comparison-summary p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Notifications */
+.notifications {
+  margin-bottom: 40px;
+}
+
+.notifications h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.notifications ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notifications li {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Quick Actions */
+.action-buttons {
+  text-align: center;
+}
+
+.action-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}

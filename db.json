@@ -1,0 +1,244 @@
+{
+    "credentials": {
+      "password": "12345",
+      "username": "admin"
+    },
+    "items": {
+      "3326": {
+        "id": 3326,
+        "brand": "Generic",
+        "category": "Vegetable",
+        "name": "Tomato",
+        "cost_price": 25.0,
+        "selling_price": 38.0,
+        "quantity": 40
+      },
+      "4243": {
+        "id": 4243,
+        "brand": "ITC",
+        "category": "Noodles",
+        "name": "Yippie",
+        "cost_price": 15.0,
+        "selling_price": 20.0,
+        "quantity": 52
+      },
+      "4278": {
+        "id": 4278,
+        "brand": "Parle",
+        "category": "Biscuit",
+        "name": "HappyHappy Biscuit",
+        "cost_price": 7.0,
+        "selling_price": 10.0,
+        "quantity": 63
+      },
+      "4438": {
+        "id": 4438,
+        "brand": "Nestle",
+        "category": "Chocolate",
+        "name": "KitKat",
+        "cost_price": 5.0,
+        "selling_price": 10.0,
+        "quantity": 150
+      },
+      "4494": {
+        "id": 4494,
+        "brand": "Bisleri",
+        "category": "Drinks",
+        "name": "Water",
+        "cost_price": 15.0,
+        "selling_price": 20.0,
+        "quantity": 24
+      },
+      "4918": {
+        "id": 4918,
+        "brand": "Parle",
+        "category": "Snacks",
+        "name": "Kurkure",
+        "cost_price": 7.0,
+        "selling_price": 10.0,
+        "quantity": 46
+      },
+      "5380": {
+        "id": 5380,
+        "brand": "Unilever",
+        "category": "Soap",
+        "name": "Lux",
+        "cost_price": 20.0,
+        "selling_price": 25.0,
+        "quantity": 30
+      },
+      "5383": {
+        "id": 5383,
+        "brand": "Nestle",
+        "category": "Noodles",
+        "name": "Maggi",
+        "cost_price": 25.0,
+        "selling_price": 30.0,
+        "quantity": 30
+      },
+      "5682": {
+        "id": 5682,
+        "brand": "Generic",
+        "category": "Fruits",
+        "name": "Mango",
+        "cost_price": 70.0,
+        "selling_price": 80.0,
+        "quantity": 18
+      },
+      "5718": {
+        "id": 5718,
+        "brand": "Taj",
+        "category": "Drinks",
+        "name": "Tea powder",
+        "cost_price": 50.0,
+        "selling_price": 65.0,
+        "quantity": 25
+      },
+      "6384": {
+        "id": 6384,
+        "brand": "Nestle",
+        "category": "Chocolate",
+        "name": "Munch",
+        "cost_price": 3.0,
+        "selling_price": 5.0,
+        "quantity": 81
+      },
+      "6391": {
+        "id": 6391,
+        "brand": "Nestle",
+        "category": "Drinks",
+        "name": "Coffee",
+        "cost_price": 12.0,
+        "selling_price": 15.0,
+        "quantity": 55
+      },
+      "6600": {
+        "id": 6600,
+        "brand": "Ashirwad",
+        "category": "Flour",
+        "name": "Wheat flour",
+        "cost_price": 45.0,
+        "selling_price": 55.0,
+        "quantity": 42
+      },
+      "6890": {
+        "id": 6890,
+        "brand": "Mishras",
+        "category": "Dairy",
+        "name": "Bread",
+        "cost_price": 25.0,
+        "selling_price": 30.0,
+        "quantity": 28
+      },
+      "7145": {
+        "id": 7145,
+        "brand": "Generic",
+        "category": "Vegetable",
+        "name": "Onions",
+        "cost_price": 40.0,
+        "selling_price": 46.0,
+        "quantity": 40
+      },
+      "7310": {
+        "id": 7310,
+        "brand": "Generic",
+        "category": "Dairy",
+        "name": "Eggs",
+        "cost_price": 6.0,
+        "selling_price": 8.0,
+        "quantity": 176
+      },
+      "7605": {
+        "id": 7605,
+        "brand": "Fritolay",
+        "category": "Chips",
+        "name": "Lays",
+        "cost_price": 8.0,
+        "selling_price": 10.0,
+        "quantity": 248
+      },
+      "7671": {
+        "id": 7671,
+        "brand": "Amul",
+        "category": "Dairy",
+        "name": "Cheese",
+        "cost_price": 35.0,
+        "selling_price": 45.0,
+        "quantity": 29
+      },
+      "8088": {
+        "id": 8088,
+        "brand": "Kohinoor",
+        "category": "Grains",
+        "name": "Rice",
+        "cost_price": 40.0,
+        "selling_price": 50.0,
+        "quantity": 95
+      },
+      "8249": {
+        "id": 8249,
+        "brand": "Parachute",
+        "category": "Oil",
+        "name": "Coconut Oil",
+        "cost_price": 60.0,
+        "selling_price": 75.0,
+        "quantity": 40
+      },
+      "8289": {
+        "id": 8289,
+        "brand": "Generic",
+        "category": "Fruits",
+        "name": "Bananas",
+        "cost_price": 30.0,
+        "selling_price": 36.0,
+        "quantity": 60
+      },
+      "8803": {
+        "id": 8803,
+        "brand": "Generic",
+        "category": "Fruits",
+        "name": "Apple",
+        "cost_price": 55.0,
+        "selling_price": 65.0,
+        "quantity": 17
+      },
+      "8994": {
+        "id": 8994,
+        "brand": "GSK",
+        "category": "Balm",
+        "name": "Iodex",
+        "cost_price": 60.0,
+        "selling_price": 65.0,
+        "quantity": 23
+      },
+      "9271": {
+        "id": 9271,
+        "brand": "Britania",
+        "category": "Cookies",
+        "name": "GoodDay",
+        "cost_price": 15.0,
+        "selling_price": 20.0,
+        "quantity": 60
+      },
+      "9466": {
+        "id": 9466,
+        "brand": "Reynolds",
+        "category": "Stationery",
+        "name": "Ball pen",
+        "cost_price": 4.0,
+        "selling_price": 6.0,
+        "quantity": 166
+      },
+      "9800": {
+        "id": 9800,
+        "brand": "PepsiCo",
+        "category": "Drinks",
+        "name": "Soda",
+        "cost_price": 12.0,
+        "selling_price": 15.0,
+        "quantity": 39
+      }
+    },
+    "transid": 20210006
+  }
+  
