@@ -110,3 +110,45 @@ def dashboard():
 def get_current_capital():
     current_capital = TotalCapital.get_current_capital()
     return jsonify({"capital": str(current_capital)})
+
+
+@app.route('/reports', methods=['GET'])
+def get_reports():
+    sales = Sales.query.all()
+
+    # Get the current month and year
+    current_month = datetime.now().month
+    current_year = datetime.now().year
+
+    # Get sales for this month
+    sales_this_month = Sales.query.filter(
+        db.extract('month', Sales.date_sold) == current_month,
+        db.extract('year', Sales.date_sold) == current_year
+    ).all()
+
+    # Calculate profit for this month
+    profit_this_month = sum(sale.profit for sale in sales_this_month)
+
+    # Get the total sales for this month
+    total_sales_this_month = sum(sale.total_amount for sale in sales_this_month)
+
+    # Get the total number of items sold this month
+    total_items_sold_this_month = sum(sale.quantity for sale in sales_this_month)
+
+    # Get the total number of items sold
+    total_items_sold = sum(sale.quantity for sale in sales)
+
+    # Get the total sales
+    total_sales = sum(sale.total_amount for sale in sales)
+
+    # Get the total profit
+    total_profit = sum(sale.profit for sale in sales)
+
+    return jsonify({
+        'total_sales': total_sales,
+        'total_profit': total_profit,
+        'total_items_sold': total_items_sold,
+        'total_sales_this_month': total_sales_this_month,
+        'total_items_sold_this_month': total_items_sold_this_month,
+        'profit_this_month': profit_this_month
+    })
