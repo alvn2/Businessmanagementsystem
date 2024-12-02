@@ -25,30 +25,6 @@ function Home() {
       demoContent: "Customize dashboards, set personalized alerts, and configure workflows that match your business model."
     },
     {
-      icon: <i className="fas fa-mobile-alt h-8 w-8 text-yellow-500" />,
-      title: "Mobile Access",
-      description: "Access your inventory on-the-go with our mobile-friendly interface.",
-      demoContent: "Stay connected to your inventory from anywhere, anytime."
-    },
-    {
-      icon: <i className="fas fa-exchange-alt h-8 w-8 text-orange-500" />,
-      title: "Efficient Order Management",
-      description: "Streamlined order management to process sales and purchases with ease.",
-      demoContent: "Easily manage orders, track sales, and control purchases."
-    },
-    {
-      icon: <i className="fas fa-bell h-8 w-8 text-red-500" />,
-      title: "Inventory Alerts",
-      description: "Stay updated with real-time low stock alerts and automatic restocking notifications.",
-      demoContent: "Get instant alerts for any items running low. Set up automatic restocking orders to maintain your stock levels effortlessly."
-    },
-    {
-      icon: <i className="fas fa-shipping-fast h-8 w-8 text-indigo-500" />,
-      title: "Order Notifications",
-      description: "Never miss an important order with our real-time order notifications.",
-      demoContent: "Receive push notifications or emails for each new order and track its status from placement to delivery."
-    },
-    {
       icon: <i className="fas fa-users h-8 w-8 text-teal-500" />,
       title: "Customer Management",
       description: "Manage and track customer information to improve sales and support.",
@@ -93,6 +69,48 @@ function Home() {
         </div>
       </section>
 
+      {/* Quick Links Section */}
+      <section className="quick-links">
+        <h2>Explore Key Features</h2>
+        <div className="link-cards">
+          <Link to="/inventory" className="link-card">
+            <i className="fas fa-warehouse h-8 w-8 text-blue-500"></i>
+            <h3>Inventory</h3>
+            <p>Manage your stock efficiently.</p>
+          </Link>
+          <Link to="/orders" className="link-card">
+            <i className="fas fa-shopping-cart h-8 w-8 text-green-500"></i>
+            <h3>Orders</h3>
+            <p>Track and fulfill customer orders.</p>
+          </Link>
+          <Link to="/reports" className="link-card">
+            <i className="fas fa-chart-pie h-8 w-8 text-orange-500"></i>
+            <h3>Reports</h3>
+            <p>Analyze your business performance.</p>
+          </Link>
+          <Link to="/settings" className="link-card">
+            <i className="fas fa-cogs h-8 w-8 text-purple-500"></i>
+            <h3>Settings</h3>
+            <p>Customize your app preferences.</p>
+          </Link>
+        </div>
+      </section>
+
+      {/* Role Information Section */}
+      <section className="role-info">
+        <h2>Role-Based Features</h2>
+        <div className="roles">
+          <div className="role">
+            <h3>Admin</h3>
+            <p>Full access to all features including user management and advanced analytics.</p>
+          </div>
+          <div className="role">
+            <h3>Standard User</h3>
+            <p>Access to essential tools like inventory management and order tracking.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="testimonials-section">
         <h2 className="text-3xl font-bold text-center mb-8">What Our Users Say</h2>
@@ -108,6 +126,25 @@ function Home() {
             <div className="testimonial-author">
               <span className="font-bold">Jane Smith</span>, COO of ABC Enterprises
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq">
+          <div className="faq-item">
+            <h3>How do I get started?</h3>
+            <p>Sign up for a free trial, or contact us for more information.</p>
+          </div>
+          <div className="faq-item">
+            <h3>What are the benefits of the Admin role?</h3>
+            <p>Admins have full control over settings, user management, and advanced reporting features.</p>
+          </div>
+          <div className="faq-item">
+            <h3>Can I track orders and customers?</h3>
+            <p>Yes, our system supports order and customer management for seamless operations.</p>
           </div>
         </div>
       </section>

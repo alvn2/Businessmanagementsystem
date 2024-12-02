@@ -10,6 +10,7 @@ function AddItemForm({ onItemAdded }) {
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState(null);
 
   const categories = ['Electronics', 'Clothing', 'Home', 'Books', 'Other'];
 
@@ -28,6 +29,7 @@ function AddItemForm({ onItemAdded }) {
       price: parseFloat(price),
       quantity: parseInt(quantity),
       description,
+      image: image ? URL.createObjectURL(image) : null,
     };
 
     onItemAdded(newItem);
@@ -39,6 +41,7 @@ function AddItemForm({ onItemAdded }) {
     setPrice('');
     setQuantity('');
     setDescription('');
+    setImage(null);
   };
 
   return (
@@ -125,6 +128,9 @@ function AddItemForm({ onItemAdded }) {
           step="1"
           required
         />
+        {quantity < 5 && (
+          <p className="text-red-500 text-sm mt-1">Low stock! Consider adding more.</p>
+        )}
       </div>
 
       <div className="mb-4">
@@ -139,11 +145,23 @@ function AddItemForm({ onItemAdded }) {
         />
       </div>
 
+      <div className="mb-4">
+        <label htmlFor="image" className="block text-sm font-medium">
+          Image (Optional):
+        </label>
+        <input
+          id="image"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+          className="mt-1 block w-full"
+        />
+      </div>
+
       <div className="flex justify-between">
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-          disabled={!name || !category || !brand || !price || !quantity}
         >
           Add Item
         </button>
@@ -157,6 +175,7 @@ function AddItemForm({ onItemAdded }) {
             setPrice('');
             setQuantity('');
             setDescription('');
+            setImage(null);
           }}
         >
           Reset
