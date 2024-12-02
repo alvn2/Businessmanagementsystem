@@ -108,8 +108,9 @@ def dashboard():
 
 @app.route('/capital', methods=['GET'])
 def get_current_capital():
-    current_capital = TotalCapital.get_current_capital()
-    return jsonify({"capital": str(current_capital)})
+    capital = TotalCapital.query.first()
+    print(f"Current Capital: {capital.capital if capital else 0.0}")
+    return jsonify({"capital": str(capital.capital) if capital else '0.0'})
 
 
 @app.route('/reports', methods=['GET'])
@@ -152,3 +153,120 @@ def get_reports():
         'total_items_sold_this_month': total_items_sold_this_month,
         'profit_this_month': profit_this_month
     })
+
+@app.route('/products', methods=['GET'])
+def get_products():
+    products = ProductList.query.all()
+
+    products_list = []
+
+    for product in products:
+        selling_price = product.sales_details[0].selling_price if product.sales_details else None
+
+        product_dict = {
+            'product_name': product.product_name,
+            'category': product.category,
+            'quantity': product.quantity,
+            'brand': product.brand,
+            'status': product.status,
+            'selling_price': str(selling_price) if selling_price is not None else 'N/A',  
+        }
+        products_list.append(product_dict)
+
+    return jsonify({'products': products_list})
+
+@app.route('/add_product', methods=['POST'])
+def add_product():
+    data = request.get_json()
+
+    new_product = ProductList(
+        product_name=data['product_name'],
+        category=data['category'],
+        quantity=data['quantity'],
+        brand=data['brand'],
+        status=data['status']
+    )
+
+    db.session.add(new_product)
+    db.session.commit()
+
+    return jsonify({'message': 'Product added successfully'})
+
+@app.route('/update_product/<int:product_id>', methods=['PUT'])
+def update_product(product_id):
+    data = request.get_json()
+
+    product = ProductList.query.get(product_id)
+
+    product.product_name = data['product_name']
+    product.category = data['category']
+    product.quantity = data['quantity']
+    product.brand = data['brand']
+    product.status = data['status']
+
+    db.session.commit()
+
+    return jsonify({'message': 'Product updated successfully'})
+
+@app.route('/delete_product/<int:product_id>', methods=['DELETE'])
+def delete_product(product_id):
+    product = ProductList.query.get(product_id)
+
+    db.session.delete(product)
+    db.session.commit()
+
+    return jsonify({'message': 'Product deleted successfully'})
+
+@app.route('/restock_product/<int:product_id>', methods=['PUT'])
+def restock_product(product_id):
+    data = request.get_json()
+
+    product = ProductList.query.get(product_id)
+
+    if product.restock_product(data['quantity'], data['buying_price']):
+        return jsonify({'message': 'Product restocked successfully'})
+    else:
+        return jsonify({'message': 'Insufficient capital'})
+    
+@app.route('/sales', methods=['GET'])
+def get_sales():
+    sales = Sales.query.all()
+
+    sales_list = []
+
+    for sale in sales:
+        sale_dict = {
+            'product_name': sale.product.product_name,
+            'quantity': sale.quantity,
+            'total_amount': str(sale.total_amount),
+            'profit': str(sale.profit),
+            'date_sold': sale.date_sold
+        }
+        sales_list.append(sale_dict)
+
+    return jsonify({'sales': sales_list})
+
+@app.route('/make_sale', methods=['POST'])
+def make_sale():
+    data = request.get_json()
+
+    product = ProductList.query.filter_by(product_name=data['product_name']).first()
+
+    if product and product.quantity >= data['quantity']:
+        new_sale = Sales(
+            product_id=product.id,
+            quantity=data['quantity'],
+            total_amount=data['quantity'] * product.sales_details[0].selling_price,
+            profit=data['quantity'] * (product.sales_details[0].selling_price - product.sales_details[0].buying_price),
+            date_sold=datetime.now()
+        )
+
+        db.session.add(new_sale)
+        db.session.commit()
+
+        product.update_product_quantity(data['quantity'])
+
+        return jsonify({'message': 'Sale made successfully'})
+    else:
+        return jsonify({'message': 'Sale failed. Product not available or quantity is insufficient'})
+    

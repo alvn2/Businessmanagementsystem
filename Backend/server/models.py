@@ -22,8 +22,9 @@ class ProductList(db.Model):
     category = db.Column(db.String(120), nullable=False)
     status = db.Column(db.String(120), nullable=False, default='Available')
     quantity = db.Column(db.Integer, nullable=False)
+    brand = db.Column(db.String(100), nullable=False)
     
-    selling_price = db.relationship('ProductSalesDetails', backref='product_list', lazy=True)
+    sale_details = db.relationship('ProductSalesDetails', backref='product_list', lazy=True)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 
@@ -66,7 +67,7 @@ class ProductSalesDetails(db.Model):
     product = db.relationship('ProductList', backref=db.backref('sales_details', lazy=True))
 
     def __repr__(self):
-        return f"ProductSalesDetails('{self.product.product_name}', '{self.quantity}', '{self.total_amount}', '{self.profit}')"
+        return f"({self.product.product_name}, {self.selling_price}, {self.buying_price}, {self.quantity})"
 
     def calculate_profit(self):
         """Calculate the profit for this sale."""
@@ -98,16 +99,15 @@ class Sales(db.Model):
         return f"Sales('{self.product.product_name}', '{self.quantity}', '{self.total_amount}', '{self.profit}', '{self.date_sold}')"
 
     def calculate_total_amount_and_profit(self):
+        """Calculate and update the total amount and profit."""
         self.total_amount = self.quantity * self.product.selling_price
-        self.profit = self.quantity * self.product.calculate_profit()
+        self.profit = self.quantity * (self.product.selling_price - self.product.buying_price)
 
     def update_sale(self):
+        """Update the sale record and adjust the capital."""
         self.calculate_total_amount_and_profit()
-        TotalCapital.update_capital(self.profit)
+        TotalCapital.update_capital(self.profit)  # Increase capital with profit
         db.session.commit()
-
-
-    
 
 class Expense(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -118,9 +118,14 @@ class Expense(db.Model):
     def __repr__(self):
         return f"Debt('{self.customer_name}', '{self.amount}', '{self.date_borrowed}', '{self.status}')"
     
+    def update_expense(self):
+        """Update the total capital by subtracting the expense amount."""
+        TotalCapital.update_capital(-self.amount)  # Decrease capital by expense amount
+        db.session.commit()
+    
 class TotalCapital(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    capital = db.Column(db.Numeric(12, 2), nullable=False)  # Store as decimal for precision
+    capital = db.Column(db.Numeric(12, 2), nullable=False)  
     date_updated = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
@@ -128,15 +133,20 @@ class TotalCapital(db.Model):
 
     @staticmethod
     def get_current_capital():
+        """Get the current capital from the database."""
         capital = db.session.query(TotalCapital).first()
         return capital.capital if capital else 0.0
 
     @staticmethod
     def update_capital(amount):
+        """Update the capital (increase or decrease by 'amount')."""
         capital = TotalCapital.query.first()
         if capital:
+            # If capital already exists, update it
             capital.capital += amount
         else:
+            # If no capital exists, create a new entry with the amount
             capital = TotalCapital(capital=amount)
             db.session.add(capital)
+
         db.session.commit()
